@@ -21,6 +21,7 @@ namespace RebootIT.TimesheetApp.Controllers
         // GET: Locations
         public async Task<IActionResult> Index()
         {
+            var timesheetDbContext = _context.Locations;
             return View(await _context.Locations.ToListAsync());
         }
 

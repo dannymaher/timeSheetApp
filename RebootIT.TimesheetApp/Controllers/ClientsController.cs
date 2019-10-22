@@ -21,13 +21,8 @@ namespace RebootIT.TimesheetApp.Controllers
         // GET: Clients
         public async Task<IActionResult> Index(int? id)
         {
-            var timesheetDbContext = _context.Clients
-                .Include(t => t.CompanyName)
-                .Include(t => t.ContactName)
-                .Include(t => t.Id)
-                .Include(t => t.ContactEmail)
-                .Include(t => t.BillingAddress)
-                .Where(t => id == null || t.Id == id);
+            var timesheetDbContext = _context.Clients;
+                
             return View(await _context.Clients.ToListAsync());
         }
 
